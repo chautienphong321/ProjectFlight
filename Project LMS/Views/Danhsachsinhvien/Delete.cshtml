@@ -1,0 +1,105 @@
+﻿@model Project_LMS.Models.Danh_sách_sinh_viên
+
+@{
+    ViewBag.Title = "Delete";
+}
+
+<h2>Xóa học viên</h2>
+
+<h3>Bạn có chắc chắn muốn xóa học viên này không?</h3>
+<div>
+    <h4>Thông tin của học viên</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            Tên học viên:
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.tenhocvien)
+        </dd>
+
+        <dt>
+            Lớp:
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.lop)
+        </dd>
+
+        <dt>
+            Khóa / khối:
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.khoa_khoi)
+        </dd>
+
+        <dt>
+            Đối tượng:
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.doituong)
+        </dd>
+
+        <dt>
+            Số điện thoại:
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.sdt)
+        </dd>
+
+        <dt>
+            Ngày nhập học:
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.ngaynhaphoc)
+        </dd>
+
+        <dt>
+            Học phí:
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.hocphi)
+        </dd>
+
+        <dt>
+            Trạng thái:
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.trangthai)
+        </dd>
+
+        <dt>
+            Thực thu:
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.thucthu)
+        </dd>
+
+        <dt>
+            Ngày thu:
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.ngaythu)
+        </dd>
+
+    </dl>
+
+    @using (Html.BeginForm())
+    {
+        @Html.AntiForgeryToken()
+
+        <div class="form-actions no-color">
+            <input type="submit" value="Xóa" class="btn btn-default" /> |
+            <a class="btn btn-default" href="~/Danhsachsinhvien/Index">Quay lại</a>
+        </div>
+    }
+</div>

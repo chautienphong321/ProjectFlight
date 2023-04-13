@@ -1,0 +1,20 @@
+﻿.infor-teacher{
+    width:100%;
+    height:500px;
+    display:flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: space-between;
+}
+.left{
+    width:50%;
+    display:flex;
+    flex-direction:column;
+    justify-content:start;
+}
+.right {
+    width: 50%;
+    display: flex;
+    flex-direction: column;
+    justify-content: start;
+}

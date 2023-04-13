@@ -1,0 +1,82 @@
+﻿@model Project_LMS.Models.Danh_sách_môn_học
+
+@{
+    ViewBag.Title = "Details";
+}
+
+<h2>Danh sách môn học</h2>
+
+<div>
+    <h4>Thông tin chi tiết môn học</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            Môn học
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Monhoc)
+        </dd>
+
+        <dt>
+            Khoa / khối
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Khoa_khoi)
+        </dd>
+
+        <dt>
+            Đơn vị tính
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Tonghocphi)
+        </dd>
+
+        <dt>
+            Trạng thái
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Trangthai)
+        </dd>
+
+        <dt>
+            Tổng học phí phải thu
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Tonghocphiphaithu)
+        </dd>
+
+        <dt>
+            Mức thu / 1 đơn vị tính
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Mucthumoidonvi)
+        </dd>
+
+        <dt>
+            Niên khóa
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Nienkhoa1)
+        </dd>
+
+        <dt>
+            Thời lượng môn học
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Thoiluongmonhoc)
+        </dd>
+
+    </dl>
+</div>
+<p>
+    <a class="btn btn-default" @Html.ActionLink("Cập nhật", "Edit", new { id = Model.Mamonhoc }) | </a>
+    <a class="btn btn-default" href="~/Danhsachmonhoc/Index">Quay lại</a>
+</p>

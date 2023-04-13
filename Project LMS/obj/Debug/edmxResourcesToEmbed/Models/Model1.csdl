@@ -1,0 +1,82 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="LMSModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+  <EntityType Name="Danh_sách_sinh_viên">
+    <Key>
+      <PropertyRef Name="mahocvien" />
+    </Key>
+    <Property Name="mahocvien" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="tenhocvien" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="lop" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="khoa_khoi" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="doituong" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="sdt" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="ngaynhaphoc" Type="DateTime" Precision="0" />
+    <Property Name="hocphi" Type="Int32" />
+    <Property Name="trangthai" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="thucthu" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="ngaythu" Type="DateTime" Precision="0" />
+  </EntityType>
+  <EntityType Name="sysdiagram">
+    <Key>
+      <PropertyRef Name="diagram_id" />
+    </Key>
+    <Property Name="name" Type="String" MaxLength="128" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="principal_id" Type="Int32" Nullable="false" />
+    <Property Name="diagram_id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="version" Type="Int32" />
+    <Property Name="definition" Type="Binary" MaxLength="Max" FixedLength="false" />
+  </EntityType>
+  <EntityContainer Name="LMSEntities" annotation:LazyLoadingEnabled="true">
+    <EntitySet Name="Danh_sách_sinh_viên" EntityType="Self.Danh_sách_sinh_viên" />
+    <EntitySet Name="sysdiagrams" EntityType="Self.sysdiagram" />
+    <EntitySet Name="Danh_sách_môn_học" EntityType="LMSModel.Danh_sách_môn_học" />
+    <EntitySet Name="Danh_sách_giáo_viên" EntityType="LMSModel.Danh_sách_giáo_viên" />
+  </EntityContainer>
+  <EntityType Name="Danh_sách_môn_học">
+    <Key>
+      <PropertyRef Name="Mamonhoc" />
+    </Key>
+    <Property Name="Mamonhoc" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="Monhoc" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="Khoa_khoi" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="Donvitinh" Type="Int32" />
+    <Property Name="Trangthai" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="Tonghocphi" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="Mucthumoidonvi" Type="Int32" />
+    <Property Name="Nienkhoa" Type="Int32" />
+    <Property Name="Thoiluong" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="Thoiluongmonhoc" Type="Int32" />
+    <Property Name="Tonghocphiphaithu" Type="Int32" />
+    <Property Name="Nienkhoa1" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+  </EntityType>
+  <EntityType Name="Danh_sách_giáo_viên">
+    <Key>
+      <PropertyRef Name="Magiangvien" />
+    </Key>
+    <Property Name="Magiangvien" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="Hovaten" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="Mangach" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="Chucvu" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="Tobomon" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="Loaihopdong" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="Ngayvaotruong" Type="DateTime" Precision="0" />
+    <Property Name="Nghiphep" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="Trangthai" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="Gioitinh" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="Ngaysinh" Type="DateTime" Precision="0" />
+    <Property Name="SoCMND" Type="Int32" />
+    <Property Name="Ngaycap" Type="DateTime" Precision="0" />
+    <Property Name="Noicap" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="Diachi" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="SoBHXH" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="Trinhdodaotao" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="Ngayapdungchucvu" Type="DateTime" Precision="0" />
+    <Property Name="Ngaybatdaulamviec" Type="DateTime" Precision="0" />
+    <Property Name="Ngach_hang" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="Bacluong" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="Hesoluong" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="Ngayapdungngachbac" Type="DateTime" Precision="0" />
+    <Property Name="Phucap" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="Luongcoban" Type="Int32" />
+  </EntityType>
+</Schema>

@@ -1,0 +1,208 @@
+﻿@model Project_LMS.Models.Danh_sách_giáo_viên
+
+@{
+    ViewBag.Title = "Delete";
+}
+
+<h2>Danh sách giáo viên</h2>
+
+<h3>Bạn có muốn xóa giáo viên</h3>
+<div>
+    <h4>Thông tin giáo viên</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            Họ và tên
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Hovaten)
+        </dd>
+
+        <dt>
+            Mã ngạch
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Mangach)
+        </dd>
+
+        <dt>
+            Chức vụ
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Chucvu)
+        </dd>
+
+        <dt>
+            Tổ bộ môn
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Tobomon)
+        </dd>
+
+        <dt>
+            Loại hợp đồng
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Loaihopdong)
+        </dd>
+
+        <dt>
+            Ngày vào trường
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Ngayvaotruong)
+        </dd>
+
+        <dt>
+            Nghỉ phép
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Nghiphep)
+        </dd>
+
+        <dt>
+            Trạng thái
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Trangthai)
+        </dd>
+
+        <dt>
+            Giới tính
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Gioitinh)
+        </dd>
+
+        <dt>
+            Ngày sinh
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Ngaysinh)
+        </dd>
+
+        <dt>
+            Số CMND
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.SoCMND)
+        </dd>
+
+        <dt>
+            Ngày cấp
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Ngaycap)
+        </dd>
+
+        <dt>
+            Nơi cấp
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Noicap)
+        </dd>
+
+        <dt>
+            Địa chỉ
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Diachi)
+        </dd>
+
+        <dt>
+            Số BHXH
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.SoBHXH)
+        </dd>
+
+        <dt>
+            Trình độ đào tạo
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Trinhdodaotao)
+        </dd>
+
+        <dt>
+            Ngày áp dụng chức vụ
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Ngayapdungchucvu)
+        </dd>
+
+        <dt>
+            Ngày bắt đầu làm việc
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Ngaybatdaulamviec)
+        </dd>
+
+        <dt>
+            Ngạch / hạng
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Ngach_hang)
+        </dd>
+
+        <dt>
+            Bậc lương
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Bacluong)
+        </dd>
+
+        <dt>
+            Hệ số lương
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Hesoluong)
+        </dd>
+
+        <dt>
+            Ngày áp dụng ngạch bậc
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Ngayapdungngachbac)
+        </dd>
+
+        <dt>
+            Phụ cấp
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Phucap)
+        </dd>
+
+    </dl>
+
+    @using (Html.BeginForm()) {
+        @Html.AntiForgeryToken()
+
+        <div class="form-actions no-color">
+            <input type="submit" value="Xóa" class="btn btn-default" /> |
+            @Html.ActionLink("Quay về", "Index")
+        </div>
+    }
+</div>

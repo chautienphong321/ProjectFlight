@@ -1,0 +1,156 @@
+﻿@model IEnumerable<Project_LMS.Models.Danh_sách_sinh_viên>
+
+@{
+    ViewBag.Title = "Index";
+}
+
+<h2>Danh sách sinh viên</h2>
+
+<p>
+    @Html.ActionLink("Thêm học viên", "Create")
+</p>
+@using (Html.BeginForm("Index", "Danhsachsinhvien", FormMethod.Post))
+{
+    <div class="form-group form-inline">
+        <input type="text" name="SearchString" placeholder="Nhập tên sinh viên" class="form-control" />
+        @Html.DropDownList("SearchGrade", (IEnumerable<SelectListItem>)
+               (new[] {
+               new SelectListItem(){ Text = "Khối 6" },
+               new SelectListItem() { Text = "Khối 7" },
+               new SelectListItem() { Text = "Khối 8" },
+               new SelectListItem() { Text = "Khối 9" },
+               }), "Chọn khoa / khối", new { @class = "form-control" })
+
+        @Html.DropDownList("SearchClass", (IEnumerable<SelectListItem>
+                    )(new[] {
+                    new SelectListItem() { Text = "6A" },
+                    new SelectListItem() { Text = "6B" },
+                    new SelectListItem() { Text = "6C" },
+                    new SelectListItem() { Text = "6D" },
+                    new SelectListItem() { Text = "6E" },
+                    new SelectListItem() { Text = "6F" },
+                    new SelectListItem() { Text = "7A" },
+                    new SelectListItem() { Text = "7B" },
+                    new SelectListItem() { Text = "7C" },
+                    new SelectListItem() { Text = "7D" },
+                    new SelectListItem() { Text = "7E" },
+                    new SelectListItem() { Text = "7F" },
+                    new SelectListItem() { Text = "8A" },
+                    new SelectListItem() { Text = "8B" },
+                    new SelectListItem() { Text = "8C" },
+                    new SelectListItem() { Text = "8D" },
+                    new SelectListItem() { Text = "8E" },
+                    new SelectListItem() { Text = "8F" },
+                    new SelectListItem() { Text = "9A" },
+                    new SelectListItem() { Text = "9B" },
+                    new SelectListItem() { Text = "9C" },
+                    new SelectListItem() { Text = "9D" },
+                    new SelectListItem() { Text = "9E" },
+                    new SelectListItem() { Text = "9F" },
+                    }), "Chọn lớp", new { @class = "form-control" })
+
+        @Html.DropDownList("SearchObject", (IEnumerable<SelectListItem>
+                   )(new[] {
+                   new SelectListItem() { Text = "None" },
+                   new SelectListItem() { Text = "10%" },
+                   new SelectListItem() { Text = "20%" },
+                   new SelectListItem() { Text = "25%" },
+                   new SelectListItem() { Text = "30%" },
+                   new SelectListItem() { Text = "40%" },
+                   new SelectListItem() { Text = "50%" },
+                   new SelectListItem() { Text = "60%" },
+                   new SelectListItem() { Text = "70%" },
+                   new SelectListItem() { Text = "75%" },
+                   new SelectListItem() { Text = "80%" },
+                   new SelectListItem() { Text = "90%" },
+                   new SelectListItem() { Text = "100%" },
+                   }), "chọn đối tượng", new { @class = "form-control" })
+
+        @Html.DropDownList("SearchStatus", (IEnumerable<SelectListItem>
+                   )(new[] {
+                   new SelectListItem() { Text = "Đã đóng" },
+                   new SelectListItem() { Text = "Chưa đóng" },
+                   }), "Chọn trạng thái", new { @class = "form-control" })
+        <input type="submit" class="btn btn-default" value="Tìm kiếm" />
+        <a  class="btn btn-default" href="~/Danhsachsinhvien/index" >Tất cả sinh viên</a>
+    </div>
+}
+<table class="table">
+    <tr>
+        <th>
+            Tên học viên
+        </th>
+        <th>
+            Lớp
+        </th>
+        <th>
+            Khóa/Khối
+        </th>
+        <th>
+            Đối tượng
+        </th>
+        <th>
+            Số điện thoại
+        </th>
+        <th>
+            Ngày nhập học
+        </th>
+        <th>
+            Học Phí
+        </th>
+        <th>
+            Trạng thái
+        </th>
+        <th>
+            Thực thu
+        </th>
+        <th>
+            Ngày thu
+        </th>
+        <th></th>
+    </tr>
+
+    @foreach (var item in Model)
+    {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.tenhocvien)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.lop)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.khoa_khoi)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.doituong)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.sdt)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.ngaynhaphoc)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.hocphi)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.trangthai)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.thucthu)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.ngaythu)
+            </td>
+            <td>
+                @Html.ActionLink("Sửa", "Edit", new { id = item.mahocvien }) |
+                @Html.ActionLink("Thu học phí", "Status", new { id = item.mahocvien }) |
+                @Html.ActionLink("Chi tiết", "Details", new { id = item.mahocvien }) |
+                @Html.ActionLink("Xóa", "Delete", new { id = item.mahocvien }) |
+
+            </td>
+        </tr>
+    }
+
+</table>

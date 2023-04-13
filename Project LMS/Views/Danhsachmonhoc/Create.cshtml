@@ -1,0 +1,140 @@
+﻿@model Project_LMS.Models.Danh_sách_môn_học
+
+@{
+    ViewBag.Title = "Create";
+}
+
+<h2>Danh sách môn học</h2>
+
+@using (Html.BeginForm()) 
+{
+    @Html.AntiForgeryToken()
+    
+<div class="form-horizontal">
+    <h4>Thêm môn học</h4>
+    <hr />
+    @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+    <div class="form-group">
+        @Html.LabelFor(model => model.Mamonhoc, "Mã môn học", htmlAttributes: new { @class = "control-label col-md-2" })
+        <div class="col-md-10">
+            @Html.EditorFor(model => model.Mamonhoc, new { htmlAttributes = new { @class = "form-control" } })
+            @Html.ValidationMessageFor(model => model.Mamonhoc, "", new { @class = "text-danger" })
+        </div>
+    </div>
+
+    <div class="form-group">
+        @Html.LabelFor(model => model.Monhoc, "Môn học", htmlAttributes: new { @class = "control-label col-md-2" })
+        <div class="col-md-10">
+            @Html.DropDownListFor(model => model.Monhoc, (IEnumerable<SelectListItem>
+                )(new[] {
+                    new SelectListItem() { Text = "Pháp luật" },
+                    new SelectListItem() { Text = "Chính trị" },
+                    new SelectListItem() { Text = "Huấn luyện quân sự và an ninh" },
+                    new SelectListItem() { Text = "làm việc nhóm" },
+                    new SelectListItem() { Text = "Lập trình thủ tục" },
+                    new SelectListItem() { Text = "Networking" },
+                    new SelectListItem() { Text = "Lập trình" },
+                    new SelectListItem() { Text = "Cơ bản về CNTT" },
+                    new SelectListItem() { Text = "Giao tiếp kinh doanh" },
+                    new SelectListItem() { Text = "Thiết kế & Phát triển cơ sở dữ liệu" },
+                    new SelectListItem() { Text = "An ninh mạng" },
+                    new SelectListItem() { Text = "Vòng đời phát triển phần mềm" },
+                    new SelectListItem() { Text = "Thiết kế & phát triển trang web" },
+                    new SelectListItem() { Text = "Thực hành nghề nghiệp" },
+                    new SelectListItem() { Text = "Cấu trúc dữ liệu & thuật toán" },
+                    new SelectListItem() { Text = "Quản lý một dự án điện toán" },
+                    new SelectListItem() { Text = "Kĩ năng thương lượng" },
+                    new SelectListItem() { Text = "Internet of Things" },
+                    new SelectListItem() { Text = "Kỹ năng quản lý" },
+                    new SelectListItem() { Text = "Điện toán đám mây" },
+                    new SelectListItem() { Text = "Lập trình nâng cao" },
+                    new SelectListItem() { Text = "Phát triển ứng ụng" },
+                    new SelectListItem() { Text = "Kinh doanh thônng ming" },
+                    new SelectListItem() { Text = "Dự án nghiên cứu máy tính" },
+                }), "Chọn Môn học", new { @class = "form-control" })
+            @Html.ValidationMessageFor(model => model.Monhoc, "", new { @class = "text-danger" })
+        </div>
+    </div>
+
+    <div class="form-group">
+        @Html.LabelFor(model => model.Khoa_khoi, "Khoa / Khối", htmlAttributes: new { @class = "control-label col-md-2" })
+        <div class="col-md-10">
+            @Html.DropDownListFor(model => model.Khoa_khoi, (IEnumerable<SelectListItem>
+                 )(new[] {
+                 new SelectListItem() { Text = "Khối 6" },
+                 new SelectListItem() { Text = "Khối 7" },
+                 new SelectListItem() { Text = "Khối 8" },
+                 new SelectListItem() { Text = "Khối 9" },
+                 }), "chọn khoa / Khối", new { @class = "form-control" })
+            @Html.ValidationMessageFor(model => model.Khoa_khoi, "", new { @class = "text-danger" })
+        </div>
+    </div>
+
+    <div class="form-group">
+        @Html.LabelFor(model => model.Tonghocphiphaithu, "Tổng học phí phải thu", htmlAttributes: new { @class = "control-label col-md-2" })
+    </div>
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.Thoiluongmonhoc, "Thời lượng", htmlAttributes: new { @class = "control-label col-md-2" })
+        <div class="col-md-10">
+            @Html.EditorFor(model => model.Thoiluongmonhoc, new { htmlAttributes = new { @class = "form-control" } })
+            @Html.ValidationMessageFor(model => model.Thoiluongmonhoc, "", new { @class = "text-danger" })
+        </div>
+    </div>
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.Tonghocphi, "Đơn vị tính", htmlAttributes: new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.DropDownListFor(model => model.Tonghocphi, (IEnumerable<SelectListItem>
+                    )(new[] {
+                    new SelectListItem() { Text = "Tín chỉ" },
+                    new SelectListItem() { Text = "Tiết học" },
+                    }), "Chọn đơn vị tính", new { @class = "form-control" })
+                @Html.ValidationMessageFor(model => model.Tonghocphi, "", new { @class = "text-danger" })
+            </div>
+        </div>
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.Mucthumoidonvi, "Mức thu / 1 đơn vị tính", htmlAttributes: new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.EditorFor(model => model.Mucthumoidonvi, new { htmlAttributes = new { @class = "form-control" } })
+                @Html.ValidationMessageFor(model => model.Mucthumoidonvi, "", new { @class = "text-danger" })
+            </div>
+        </div>
+        <div class="form-group">
+            @Html.LabelFor(model => model.Trangthai, "Trạng thái", htmlAttributes: new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.DropDownListFor(model => model.Trangthai, (IEnumerable<SelectListItem>
+                    )(new[] {
+                    new SelectListItem() { Text = "Chưa áp dụng" },
+                    new SelectListItem() { Text = "Đang áp dụng" },
+                    new SelectListItem() { Text = "Ngừng áp dụng" },
+                    }), "Chọn trạng thái", new { @class = "form-control" })
+                @Html.ValidationMessageFor(model => model.Trangthai, "", new { @class = "text-danger" })
+            </div>
+        </div>
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.Nienkhoa1, "Niên khóa", htmlAttributes: new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.DropDownListFor(model => model.Nienkhoa1, (IEnumerable<SelectListItem>
+                    )(new[] {
+                    new SelectListItem() { Text = "2019 - 2020" },
+                    new SelectListItem() { Text = "2020 - 2021" },
+                    new SelectListItem() { Text = "2021 - 2022" },
+                    }), "Chọn niên khóa", new { @class = "form-control" })
+                @Html.ValidationMessageFor(model => model.Nienkhoa1, "", new { @class = "text-danger" })
+            </div>
+        </div>
+
+        <div class="form-group">
+            <div class="col-md-offset-2 col-md-10">
+                <input type="submit" value="Thêm mới" class="btn btn-default" />
+            </div>
+        </div>
+    </div>
+    }
+
+    <div>
+        <a class="btn btn-default" href="~/Danhsachmonhoc/Index">Quay lại</a>
+    </div>

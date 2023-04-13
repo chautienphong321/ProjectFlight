@@ -1,0 +1,133 @@
+﻿@model IEnumerable<Project_LMS.Models.Danh_sách_môn_học>
+
+@{
+    ViewBag.Title = "Index";
+}
+
+<h2>Danh sách môn học</h2>
+
+<p>
+    @Html.ActionLink("Thêm mới", "Create")
+</p>
+@using (Html.BeginForm("Index", "Danhsachmonhoc", FormMethod.Post))
+{
+    <div class="form-group form-inline">
+        <input type="text" name="SearchString" placeholder="Nhập tên môn học" class="form-control" />
+        @Html.DropDownList("SearchGrade", (IEnumerable<SelectListItem>)
+                (new[] {
+               new SelectListItem() { Text = "Khối 6" },
+               new SelectListItem() { Text = "Khối 7" },
+               new SelectListItem() { Text = "Khối 8" },
+               new SelectListItem() { Text = "Khối 9" },
+                }), "Chọn khoa / khối", new { @class = "form-control" })
+
+        @Html.DropDownList("SearchSubject", (IEnumerable<SelectListItem>
+                     )(new[] {
+                    new SelectListItem() { Text = "Pháp luật" },
+                    new SelectListItem() { Text = "Chính trị" },
+                    new SelectListItem() { Text = "Huấn luyện quân sự và an ninh" },
+                    new SelectListItem() { Text = "làm việc nhóm" },
+                    new SelectListItem() { Text = "Lập trình thủ tục" },
+                    new SelectListItem() { Text = "Networking" },
+                    new SelectListItem() { Text = "Lập trình" },
+                    new SelectListItem() { Text = "Cơ bản về CNTT" },
+                    new SelectListItem() { Text = "Giao tiếp kinh doanh" },
+                    new SelectListItem() { Text = "Thiết kế & Phát triển cơ sở dữ liệu" },
+                    new SelectListItem() { Text = "An ninh mạng" },
+                    new SelectListItem() { Text = "Vòng đời phát triển phần mềm" },
+                    new SelectListItem() { Text = "Thiết kế & phát triển trang web" },
+                    new SelectListItem() { Text = "Thực hành nghề nghiệp" },
+                    new SelectListItem() { Text = "Cấu trúc dữ liệu & thuật toán" },
+                    new SelectListItem() { Text = "Quản lý một dự án điện toán" },
+                    new SelectListItem() { Text = "Kĩ năng thương lượng" },
+                    new SelectListItem() { Text = "Internet of Things" },
+                    new SelectListItem() { Text = "Kỹ năng quản lý" },
+                    new SelectListItem() { Text = "Điện toán đám mây" },
+                    new SelectListItem() { Text = "Lập trình nâng cao" },
+                    new SelectListItem() { Text = "Phát triển ứng ụng" },
+                    new SelectListItem() { Text = "Kinh doanh thônng ming" },
+                    new SelectListItem() { Text = "Dự án nghiên cứu máy tính" },
+                }), "Chọn Môn học", new { @class = "form-control" })
+
+
+        @Html.DropDownList("SearchStatus", (IEnumerable<SelectListItem>
+                    )(new[] {
+                   new SelectListItem() { Text = "Chưa áp dụng" },
+                   new SelectListItem() { Text = "Đang áp dụng" },
+                   new SelectListItem() { Text = "Ngừng áp dụng" },
+                    }), "Chọn trạng thái", new { @class = "form-control" })
+        @Html.DropDownList("searchYear", (IEnumerable<SelectListItem>
+                    )(new[] {
+                    new SelectListItem() { Text = "2019 - 2020" },
+                    new SelectListItem() { Text = "2020 - 2021" },
+                    new SelectListItem() { Text = "2021 - 2022" },
+                    }), "Chọn niên khóa", new { @class = "form-control" })
+        <input type="submit" class="btn btn-default" value="Tìm kiếm" />
+        <a class="btn btn-default" href="~/Danhsachmonhoc/index">Tất cả Môn học</a>
+    </div>
+}
+    <table class="table">
+        <tr>
+            <th>
+                Mã môn học
+            </th>
+            <th>
+                Môn học
+            </th>
+            <th>
+                Khoa / Khối
+            </th>
+            <th>
+                Thời lượng
+            </th>
+            <th>
+                Đơn vị tính
+            </th>
+            <th>
+                Mức thu / 1 đơn vị tính
+            </th>
+            <th>
+                Tổng học phí
+            </th>
+            <th>
+                Trạng thái
+            </th>
+            <th></th>
+        </tr>
+
+        @foreach (var item in Model)
+        {
+            <tr>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Mamonhoc)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Monhoc)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Khoa_khoi)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Thoiluongmonhoc)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Tonghocphi)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Mucthumoidonvi)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Tonghocphiphaithu)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Trangthai)
+                </td>
+                <td>
+                    @Html.ActionLink("Cập nhật", "Edit", new { id = item.Mamonhoc }) |
+                    @Html.ActionLink("Thông tin chi tiết", "Details", new { id = item.Mamonhoc }) |
+                    @Html.ActionLink("Xóa", "Delete", new { id = item.Mamonhoc })
+                </td>
+            </tr>
+        }
+
+    </table>

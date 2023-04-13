@@ -1,0 +1,88 @@
+﻿@model Project_LMS.Models.Danh_sách_môn_học
+
+@{
+    ViewBag.Title = "Delete";
+}
+
+<h2>Danh sách môn học</h2>
+
+<h3>Bạn có chắc chắn xóa môn học này không?</h3>
+<div>
+    <h4>Thông tin môn học</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            Môn học
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Monhoc)
+        </dd>
+
+        <dt>
+            Khóa / Khối
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Khoa_khoi)
+        </dd>
+
+        <dt>
+            Đơn vị tính
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Tonghocphi)
+        </dd>
+
+        <dt>
+            Trạng thái
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Trangthai)
+        </dd>
+
+        <dt>
+            Tổng học phí phải thu
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Tonghocphiphaithu)
+        </dd>
+
+        <dt>
+            Mức thu / 1 đơn vị tính
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Mucthumoidonvi)
+        </dd>
+
+        <dt>
+            Niên khóa
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Nienkhoa1)
+        </dd>
+
+        <dt>
+            Thời lượng môn học
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Thoiluongmonhoc)
+        </dd>
+
+    </dl>
+
+    @using (Html.BeginForm()) {
+        @Html.AntiForgeryToken()
+
+        <div class="form-actions no-color">
+            <input type="submit" value="Xóa" class="btn btn-default" /> |
+            <a class="btn btn-default" href="~/Danhsachmonhoc/Index" >Quay lại</a>
+        </div>
+    }
+</div>
